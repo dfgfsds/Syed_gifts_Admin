@@ -94,6 +94,8 @@ export default function ProductModal({
     setValue('description_2', productForm?.description_2);
     setValue('keywords', productForm?.keywords);
     setValue('meta_tax', productForm?.meta_tax);
+    setValue('is_custom_image_required', productForm?.is_custom_image_required);
+    setValue('is_custom_message_required ', productForm?.is_custom_message_required);
     setValue('image_urls', setImages(productForm?.image_urls?.map((item: any) => { return item })));
 
     if (productForm?.variants) {
@@ -159,6 +161,8 @@ export default function ProductModal({
       height: data?.height,
       discount: data?.discount,
       stock_quantity: data?.stock_quantity,
+      is_custom_image_required: data?.is_custom_image_required,
+      is_custom_message_required: data?.is_custom_message_required,
       ...(data?.category && { category: data?.category }),
       ...(data?.subcategory && { subcategory: data?.subcategory }),
       keywords: data.keywords,
@@ -333,6 +337,31 @@ export default function ProductModal({
               <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6'>
                 <Input required type="number" label="Stock Quantity" {...register('stock_quantity', { required: true })} />
               </div>
+
+              <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6 flex items-center gap-2 py-2'>
+                <label className="block text-md font-bold  mb-1">
+                  Custom Image
+                </label>
+                <Input
+                  type="checkbox"
+                  id="is_custom_image_required"
+                  {...register("is_custom_image_required")}
+                  className="h-16 w-16 text-indigo-600 border-gray-300 rounded"
+                />
+              </div>
+
+              <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6 flex items-center gap-2 py-2'>
+                <label className="block text-md font-bold  mb-1">
+                  Custom Message
+                </label>
+                <Input
+                  type="checkbox"
+                  id="is_custom_message_required "
+                  {...register("is_custom_message_required ")}
+                  className="h-16 w-16 text-indigo-600 border-gray-300 rounded"
+                />
+              </div>
+
               <div className='col-span-12 lg:col-span-12'>
                 <label className="block text-sm font-bold  mb-1">Description <span className="text-red-500 ml-1">*</span></label>
                 <Controller
