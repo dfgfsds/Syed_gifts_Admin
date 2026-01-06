@@ -33,6 +33,7 @@ const dtdcDelivery = `${baseUrl}/delivery-partner-data-bulk-pricing-data/dtdc/`
 const blog = `${baseUrl}/blog/`;
 const refund=`${baseUrl}/initiate_razorpay_refund/`;
 const vendorOtherDetails=`${baseUrl}/vendor-other-details/`;
+const getCouppons=`${baseUrl}/get-coupons-by-vendor/`;
 export default {
     multiVendor,
     multiVendorLogin,
@@ -62,5 +63,6 @@ export default {
     dtdcDelivery,
     blog,
     refund,
-    vendorOtherDetails
+    vendorOtherDetails,
+    getCouppons,
 };

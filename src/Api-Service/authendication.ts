@@ -23,7 +23,7 @@ export const postCouponApi = async (query: any, payload: any) => {
 //   COUPON GET API
 export const GetCouponApi = async (query: any) => {
   const formattedQuery = query?.endsWith('/') ? query : `${query}`;
-  return axios.get(`${ApiUrls.coupons}${formattedQuery}`);
+  return axios.get(`${ApiUrls.getCouppons}${formattedQuery}`);
 };
 
 //   COUPON UPDATE API

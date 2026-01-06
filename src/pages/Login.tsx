@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import { postLoginInAPi } from '../Api-Service/authendication';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { toast } from 'react-toastify';
 import Logo from '../assets/image/Logo.jpeg'
@@ -18,6 +18,15 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    const userId = localStorage.getItem('userId');
+    const mainVendor = localStorage.getItem('mainVendor');
+    if (userId && mainVendor) {
+      navigate('/store/146/products');
+    }
+  }, [navigate]);
+
 
   const onSubmit = async (data: any) => {
     setLoading(true);
