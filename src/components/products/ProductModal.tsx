@@ -95,7 +95,7 @@ export default function ProductModal({
     setValue('keywords', productForm?.keywords);
     setValue('meta_tax', productForm?.meta_tax);
     setValue('is_custom_image_required', productForm?.is_custom_image_required);
-    setValue('is_custom_message_required ', productForm?.is_custom_message_required);
+    setValue('is_custom_message_required', productForm?.is_custom_message_required);
     setValue('image_urls', setImages(productForm?.image_urls?.map((item: any) => { return item })));
 
     if (productForm?.variants) {
@@ -193,6 +193,8 @@ export default function ProductModal({
         height: data?.height,
         discount: data?.discount,
         stock_quantity: data?.stock_quantity,
+        is_custom_image_required: data?.is_custom_image_required,
+        is_custom_message_required: data?.is_custom_message_required,
         ...(data?.category && { category: data?.category }),
         ...(data?.subcategory && { subcategory: data?.subcategory }),
 
@@ -356,8 +358,8 @@ export default function ProductModal({
                 </label>
                 <Input
                   type="checkbox"
-                  id="is_custom_message_required "
-                  {...register("is_custom_message_required ")}
+                  id="is_custom_message_required"
+                  {...register("is_custom_message_required")}
                   className="h-16 w-16 text-indigo-600 border-gray-300 rounded"
                 />
               </div>
