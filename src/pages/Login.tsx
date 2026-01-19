@@ -23,7 +23,7 @@ export default function Login() {
     const userId = localStorage.getItem('userId');
     const mainVendor = localStorage.getItem('mainVendor');
     if (userId && mainVendor) {
-      navigate('/store/146/products');
+      navigate('/store/142/products');
     }
   }, [navigate]);
 
