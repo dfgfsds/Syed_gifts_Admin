@@ -96,6 +96,8 @@ export default function ProductModal({
     setValue('meta_tax', productForm?.meta_tax);
     setValue('is_custom_image_required', productForm?.is_custom_image_required);
     setValue('is_custom_message_required', productForm?.is_custom_message_required);
+    setValue('custom_image_limit', productForm?.custom_image_limit);
+    setValue('required_data_for_product', productForm?.required_data_for_product);
     setValue('image_urls', setImages(productForm?.image_urls?.map((item: any) => { return item })));
 
     if (productForm?.variants) {
@@ -161,6 +163,8 @@ export default function ProductModal({
       height: data?.height,
       discount: data?.discount,
       stock_quantity: data?.stock_quantity,
+      custom_image_limit: data?.custom_image_limit,
+      required_data_for_product: data?.required_data_for_product,
       is_custom_image_required: data?.is_custom_image_required,
       is_custom_message_required: data?.is_custom_message_required,
       ...(data?.category && { category: data?.category }),
@@ -193,6 +197,8 @@ export default function ProductModal({
         height: data?.height,
         discount: data?.discount,
         stock_quantity: data?.stock_quantity,
+        custom_image_limit: data?.custom_image_limit,
+        required_data_for_product: data?.required_data_for_product,
         is_custom_image_required: data?.is_custom_image_required,
         is_custom_message_required: data?.is_custom_message_required,
         ...(data?.category && { category: data?.category }),
@@ -339,7 +345,6 @@ export default function ProductModal({
               <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6'>
                 <Input required type="number" label="Stock Quantity" {...register('stock_quantity', { required: true })} />
               </div>
-
               <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6 flex items-center gap-2 py-2'>
                 <label className="block text-md font-bold  mb-1">
                   Custom Image
@@ -361,6 +366,24 @@ export default function ProductModal({
                   id="is_custom_message_required"
                   {...register("is_custom_message_required")}
                   className="h-16 w-16 text-indigo-600 border-gray-300 rounded"
+                />
+              </div>
+
+              <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6 my-1'>
+                <Input type="number" label="Custom Image Limit" {...register('custom_image_limit', { required: true })} />
+              </div>
+
+              {/* <div className='col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-6 my-1'>
+                <Input required type="text" label="Required Data For Product" {...register('required_data_for_product', { required: true })} />
+              </div> */}
+
+              <div className='col-span-12 lg:col-span-12'>
+                <label className="block text-sm font-bold  mb-1">Required Data For Product </label>
+                <textarea
+                  {...register("required_data_for_product")}
+                  rows={3}
+                  placeholder="Required Data For Product"
+                  className="mt-1 block w-full rounded-md border-gray-300 border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
 
